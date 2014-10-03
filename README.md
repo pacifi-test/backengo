@@ -38,7 +38,7 @@ Password: `12345`
 
     $pip install -r requirements.txt
 
-  para instalar pip revise [ ][manual]
+  para instalar pip revise [Guía del desarrollador][manual]
 
 4 run the app
 

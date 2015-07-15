@@ -129,7 +129,7 @@ def permission_resource_required_decorator(template_name='mod_backend/base_mod_b
                 path_c = request.path.strip(
                     '/')  # request.get_full_path().strip('/') #'/apps/controller/action/' to 'apps/controller/action'
 
-            except Exception, e:
+            except Exception as e:
                 raise Exception(e)
             # current_url = resolve(request.path_info).url_name
             # print 'current_url=%s' % current_url

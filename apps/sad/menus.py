@@ -13,7 +13,7 @@ from apps.sad.models import Menu
 
 from apps.utils.security import UserToken
 from apps.space.models import Headquar
-reload(sys)
+#reload(sys)
 # sys.setdefaultencoding('utf-8')
 from django.contrib.auth.models import Group, Permission
 from django.db.models import Q
@@ -49,7 +49,7 @@ class Menus:
         Menus.menu_module = menu_module
         user = request.user
 
-        print "\n\n\n"
+        print ("\n\n\n")
         # print 'Permisos del User a travez de sus Groups'
         # print user.get_group_permissions() # no sirve pk tambien debemos comparar con la sede
         # if not UserToken.get_headquar_id(request.session):
@@ -77,7 +77,7 @@ class Menus:
                 permission_list = Permission.objects.filter(
                     group__in=group_id_list_by_user_and_hea).distinct()
             except:
-                print "Sede no seleccionado"
+                print ("Sede no seleccionado")
                 # headquar=Headquar.objects.filter(userheadquar__user__id=request.user.id).distinct().first()
                 pass
             

@@ -97,7 +97,7 @@ class UserDetailView(generic.DetailView):
         self.kwargs['pk'] = pk
         try:
             self.get_object()
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -179,7 +179,7 @@ class UserActiveUpdateView(generic.edit.UpdateView):
                     'obj': force_text(d)
                 })
 
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -238,7 +238,7 @@ class UserDeleteView(generic.edit.BaseDeleteView):
         self.kwargs['pk'] = pk
         try:
             self.get_object()
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -269,7 +269,7 @@ class UserDeleteView(generic.edit.BaseDeleteView):
             if not d.id:
                 messages.success(self.request, msg)
                 log.warning(msg, extra=log_params(self.request))
-        except Exception, e:
+        except Exception as e:
             messages.error(request, e)
             log.warning(force_text(e), extra=log_params(self.request))
         return HttpResponseRedirect(self.success_url)
@@ -294,7 +294,7 @@ class UserUpdateView(generic.edit.UpdateView):
         self.kwargs['pk'] = pk
         try:
             self.get_object()
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -449,7 +449,7 @@ class UserUpdateView(generic.edit.UpdateView):
             log.warning(msg, extra=log_params(self.request))
 
             return super(UserUpdateView, self).form_valid(form)
-        except Exception, e:
+        except Exception as e:
             try:
                 transaction.savepoint_rollback(sid)
             except:
@@ -531,7 +531,7 @@ class UserCreateView(generic.edit.CreateView):
             try:
                 person = Person.objects.get(
                     pk=self.request.POST.get("person_id"))
-            except Exception, e:
+            except Exception as e:
                 person = Person()
                 person.save()
                 pass
@@ -620,7 +620,7 @@ class UserCreateView(generic.edit.CreateView):
                 messages.success(self.request, msg)
                 log.warning(msg, extra=log_params(self.request))
             return super(UserCreateView, self).form_valid(form)
-        except Exception, e:
+        except Exception as e:
             try:
                 transaction.savepoint_rollback(sid)
             except:
@@ -680,7 +680,7 @@ class MenuUpdateActiveView(generic.View):
             return HttpResponseRedirect(self.success_url)
         try:
             self.object = self.model.objects.get(pk=pk)
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -706,7 +706,7 @@ class MenuUpdateActiveView(generic.View):
                     self.object.save()
                     messages.success(self.request, msg)
                     log.warning(msg, extra=log_params(self.request))
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
         return HttpResponseRedirect(self.success_url)
@@ -727,7 +727,7 @@ class MenuDeleteView(generic.edit.BaseDeleteView):
         self.kwargs['pk'] = pk
         try:
             self.get_object()
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -758,7 +758,7 @@ class MenuDeleteView(generic.edit.BaseDeleteView):
             if not d.id:
                 messages.success(self.request, msg)
                 log.warning(msg, extra=log_params(self.request))
-        except Exception, e:
+        except Exception as e:
             messages.error(request, e)
             log.warning(force_text(e), extra=log_params(self.request))
         return HttpResponseRedirect(self.success_url)
@@ -783,7 +783,7 @@ class MenuUpdateView(generic.edit.UpdateView):
         self.kwargs['pk'] = pk
         try:
             self.get_object()
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -905,7 +905,7 @@ class ModuleSolutionsUpdateView(generic.ListView):
             for m in module_list:
                 for s in m.solutions.all():
                     privilegios.append('%s-%s' % (s.id, m.id))
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
         context = super(
@@ -961,7 +961,7 @@ class ModuleSolutionsUpdateView(generic.ListView):
                 'obj': capfirst(_('permissions'))
             }
             messages.success(self.request, msg)
-        except Exception, e:
+        except Exception as e:
             transaction.savepoint_rollback(sid)
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
@@ -984,7 +984,7 @@ class ModuleUpdateActiveView(generic.View):
             return HttpResponseRedirect(self.success_url)
         try:
             self.object = self.model.objects.get(pk=pk)
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -1010,7 +1010,7 @@ class ModuleUpdateActiveView(generic.View):
                     self.object.save()
                     messages.success(self.request, msg)
                     log.warning(msg, extra=log_params(self.request))
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
         return HttpResponseRedirect(self.success_url)
@@ -1031,7 +1031,7 @@ class ModuleDeleteView(generic.edit.BaseDeleteView):
         self.kwargs['pk'] = pk
         try:
             self.get_object()
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -1056,7 +1056,7 @@ class ModuleDeleteView(generic.edit.BaseDeleteView):
             if not d.id:
                 messages.success(self.request, msg)
                 log.warning(msg, extra=log_params(self.request))
-        except Exception, e:
+        except Exception as e:
             messages.error(request, e)
             log.warning(force_text(e), extra=log_params(self.request))
         return HttpResponseRedirect(self.success_url)
@@ -1081,7 +1081,7 @@ class ModuleUpdateView(generic.edit.UpdateView):
         self.kwargs['pk'] = pk
         try:
             self.get_object()
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -1193,7 +1193,7 @@ class GroupPermissionsUpdateView(generic.ListView):
             for g in group_list:
                 for p in g.permissions.all():
                     privilegios.append('%s-%s' % (p.id, g.id))
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
         context = super(
@@ -1245,7 +1245,7 @@ class GroupPermissionsUpdateView(generic.ListView):
                 'obj': capfirst(_('permissions'))
             }
             messages.success(self.request, msg)
-        except Exception, e:
+        except Exception as e:
             transaction.savepoint_rollback(sid)
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
@@ -1268,7 +1268,7 @@ class GroupDeleteView(generic.edit.BaseDeleteView):
         self.kwargs['pk'] = pk
         try:
             self.get_object()
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -1293,7 +1293,7 @@ class GroupDeleteView(generic.edit.BaseDeleteView):
             if not d.id:
                 messages.success(self.request, msg)
                 log.warning(msg, extra=log_params(self.request))
-        except Exception, e:
+        except Exception as e:
             messages.error(request, e)
             log.warning(force_text(e), extra=log_params(self.request))
         return HttpResponseRedirect(self.success_url)
@@ -1319,7 +1319,7 @@ class GroupUpdateView(generic.edit.UpdateView):
         self.kwargs['pk'] = pk
         try:
             self.get_object()
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -1435,7 +1435,7 @@ class PermissionDeleteView(generic.edit.BaseDeleteView):
                         d.content_type.app_label, d.content_type.name,
                         codename_list[1]
                     )
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -1467,7 +1467,7 @@ class PermissionDeleteView(generic.edit.BaseDeleteView):
             if not d.id:
                 messages.success(self.request, msg)
                 log.warning(msg, extra=log_params(self.request))
-        except Exception, e:
+        except Exception as e:
             messages.error(request, e)
             log.warning(force_text(e), extra=log_params(self.request))
         return HttpResponseRedirect(self.success_url)
@@ -1493,7 +1493,7 @@ class PermissionUpdateView(generic.edit.UpdateView):
         self.kwargs['pk'] = pk
         try:
             self.get_object()
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -1552,7 +1552,7 @@ class PermissionUpdateView(generic.edit.UpdateView):
             log.warning(msg, extra=log_params(self.request))
 
             return super(PermissionUpdateView, self).form_valid(form)
-        except Exception, e:
+        except Exception as e:
             try:
                 transaction.savepoint_rollback(sid)
             except:
@@ -1615,7 +1615,7 @@ class PermissionCreateView(generic.edit.CreateView):
                 messages.success(self.request, msg)
                 log.warning(msg, extra=log_params(self.request))
             return super(PermissionCreateView, self).form_valid(form)
-        except Exception, e:
+        except Exception as e:
             try:
                 transaction.savepoint_rollback(sid)
             except:

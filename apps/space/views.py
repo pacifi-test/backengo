@@ -72,7 +72,7 @@ class HeadquarAssociationUpdateView(generic.edit.UpdateView):
         try:
             self.get_object()
 
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -87,7 +87,7 @@ class HeadquarAssociationUpdateView(generic.edit.UpdateView):
         try:
             association_name_list = json.dumps(
                 list(col["name"] + "" for col in Association.objects.values("name").filter(is_active=True).order_by("name")))
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
         context['association_name_list'] = association_name_list
         return context
@@ -119,7 +119,7 @@ class HeadquarAssociationUpdateView(generic.edit.UpdateView):
             messages.success(self.request, msg)
             log.warning(msg, extra=log_params(self.request))
             return super(HeadquarAssociationUpdateView, self).form_valid(form)
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return super(HeadquarAssociationUpdateView, self).form_invalid(form)
@@ -140,7 +140,7 @@ class HeadquarUpdateActiveView(generic.View):
             return HttpResponseRedirect(self.success_url)
         try:
             self.object = self.model.objects.get(pk=pk)
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -166,7 +166,7 @@ class HeadquarUpdateActiveView(generic.View):
                     self.object.save()
                     messages.success(self.request, msg)
                     log.warning(msg, extra=log_params(self.request))
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
         return HttpResponseRedirect(self.success_url)
@@ -206,7 +206,7 @@ class HeadquarCreateView(generic.edit.CreateView):
                 messages.success(self.request, msg)
                 log.warning(msg, extra=log_params(self.request))
             return super(HeadquarCreateView, self).form_valid(form)
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return super(HeadquarCreateView, self).form_invalid(form)
@@ -229,7 +229,7 @@ class HeadquarUpdateView(generic.edit.UpdateView):
         try:
             self.get_object()
 
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -253,7 +253,7 @@ class HeadquarUpdateView(generic.edit.UpdateView):
             messages.success(self.request, msg)
             log.warning(msg, extra=log_params(self.request))
             return super(HeadquarUpdateView, self).form_valid(form)
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return super(HeadquarUpdateView, self).form_invalid(form)
@@ -272,7 +272,7 @@ class HeadquarListView(generic.ListView):
             'Enterprise')
         try:
             Enterprise.objects.get(pk=enterprise_id)
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             messages.warning(self.request, msg)
             return HttpResponseRedirect(reverse_lazy('accounts:index'))
@@ -322,7 +322,7 @@ class EnterpriseUpdateActiveView(generic.View):
             return HttpResponseRedirect(self.success_url)
         try:
             self.object = self.model.objects.get(pk=pk)
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -348,7 +348,7 @@ class EnterpriseUpdateActiveView(generic.View):
                     self.object.save()
                     messages.success(self.request, msg)
                     log.warning(msg, extra=log_params(self.request))
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
         return HttpResponseRedirect(self.success_url)
@@ -369,7 +369,7 @@ class EnterpriseDeleteView(generic.edit.BaseDeleteView):
         self.kwargs['pk'] = pk
         try:
             self.get_object()
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -404,7 +404,7 @@ class EnterpriseDeleteView(generic.edit.BaseDeleteView):
             if not d.id:
                 messages.success(self.request, msg)
                 log.warning(msg, extra=log_params(self.request))
-        except Exception, e:
+        except Exception as e:
             try:
                 transaction.savepoint_rollback(sid)
             except:
@@ -460,7 +460,7 @@ class EnterpriseCreateView(generic.edit.CreateView):
                 messages.success(self.request, msg)
                 log.warning(msg, extra=log_params(self.request))
             return super(EnterpriseCreateView, self).form_valid(form)
-        except Exception, e:
+        except Exception as e:
             try:
                 transaction.savepoint_rollback(sid)
             except:
@@ -483,7 +483,7 @@ class EnterpriseListView(generic.ListView):
             'Association')
         try:
             Association.objects.get(pk=association_id)
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             messages.warning(self.request, msg)
             return HttpResponseRedirect(reverse_lazy('accounts:index'))
@@ -535,7 +535,7 @@ class EnterpriseUpdateView(generic.edit.UpdateView):
             self.kwargs['pk'] = pk
             try:
                 self.get_object()
-            except Exception, e:
+            except Exception as e:
                 messages.error(self.request, e)
                 return HttpResponseRedirect(self.success_url)
         else:
@@ -545,7 +545,7 @@ class EnterpriseUpdateView(generic.edit.UpdateView):
                 'Enterprise')
             try:
                 self.get_object()
-            except Exception, e:
+            except Exception as e:
                 messages.error(self.request, e)
                 messages.warning(self.request, msg)
                 return HttpResponseRedirect(reverse_lazy('accounts:index'))
@@ -586,7 +586,7 @@ class AssociationUpdateView(generic.edit.UpdateView):
             'Association')
         try:
             self.get_object()
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             messages.warning(self.request, msg)
             return HttpResponseRedirect(reverse_lazy('accounts:index'))
@@ -630,7 +630,7 @@ class SolutionUpdateActiveView(generic.View):
             return HttpResponseRedirect(self.success_url)
         try:
             self.object = self.model.objects.get(pk=pk)
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -656,7 +656,7 @@ class SolutionUpdateActiveView(generic.View):
                     self.object.save()
                     messages.success(self.request, msg)
                     log.warning(msg, extra=log_params(self.request))
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
         return HttpResponseRedirect(self.success_url)
@@ -677,7 +677,7 @@ class SolutionDeleteView(generic.edit.BaseDeleteView):
         self.kwargs['pk'] = pk
         try:
             self.get_object()
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)
@@ -713,7 +713,7 @@ class SolutionDeleteView(generic.edit.BaseDeleteView):
             if not d.id:
                 messages.success(self.request, msg)
                 log.warning(msg, extra=log_params(self.request))
-        except Exception, e:
+        except Exception as e:
             messages.error(request, e)
             log.warning(force_text(e), extra=log_params(self.request))
         return HttpResponseRedirect(self.success_url)
@@ -759,7 +759,7 @@ class SolutionUpdateView(generic.edit.UpdateView):
             #    'Subject here', 'Here is the message.', 'asullom@gmail.com',
             #    ['asullom@gmail.com'], fail_silently=False)
             '''
-        except Exception, e:
+        except Exception as e:
             messages.error(self.request, e)
             log.warning(force_text(e), extra=log_params(self.request))
             return HttpResponseRedirect(self.success_url)

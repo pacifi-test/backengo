@@ -163,7 +163,7 @@ class SecurityKey:
         key = "%s%s" % (
             SecurityKey.TEXT_KEY, datetime.datetime.now().strftime('%Y-%m-%d'))
 
-        m = hashlib.md5("%s%s%s" % (id, key, action_name))
+        m = hashlib.md5(("%s%s%s" % (id, key, action_name)).encode())
         key = m.hexdigest()
 
         return u"%s.%s" % (id, key)

@@ -124,7 +124,7 @@ class EnterpriseAssociationCreateView(generic.CreateView):
                 log.warning(msg, extra=log_params(self.request))
             return super(EnterpriseAssociationCreateView, self).form_valid(form)
 
-        except Exception, e:
+        except Exception as e:
             try:
                 transaction.savepoint_rollback(sid)
             except:
@@ -208,7 +208,7 @@ def load_access(request, headquar_id, module_id):
                 messages.error(request, 'Not implemented %s') %_('Module')
                 #raise NotImplementedError('subclasses of AbstractBaseUser must provide a get_full_name() module')
                 return HttpResponseRedirect("/accounts/")
-        except Exception, e:
+        except Exception as e:
             messages.error(request, e)
         return HttpResponseRedirect("/accounts/")
 
@@ -448,7 +448,7 @@ class SignUpView(generic.CreateView):
                 log.warning(msg, extra=log_params(self.request))
             return super(SignUpView, self).form_valid(form)
 
-        except Exception, e:
+        except Exception as e:
             try:
                 transaction.savepoint_rollback(sid)
             except:

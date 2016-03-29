@@ -30,6 +30,7 @@ Password: `12345`
 1 Install python 3.5.1, for win
 
 2 clone this repo or download .zip file
+
     D:\>md pydev
     D:\pydev>git clone https://github.com/submitconsulting/backengo.git
 
@@ -43,7 +44,7 @@ Password: `12345`
 
     (ve_backengo) D:\pydev\backengo>manage.py runserver
 
-    para instalar pip revise [Guía del desarrollador][manual]
+ para instalar pip revise [Guía del desarrollador][manual]
 
 4 run the app
 
@@ -51,7 +52,8 @@ Password: `12345`
     ó
     (ve_backengo) D:\pydev\backengo>python manage.py runserver
 
-5. Estructura de carpeta
+5 Estructura de carpeta
+
 ```
 D:\>
 └── pydev
@@ -113,6 +115,7 @@ exec
 
  
 And run the following command:
+
     $ manage.py loaddata ini_data
 
     ó

@@ -57,7 +57,7 @@ class PersonListView(generic.ListView):
         return super(PersonListView, self).dispatch(request, *args, **kwargs)
 
     def get_paginate_by(self, queryset):
-        if 'all' in self.request.REQUEST:
+        if 'all' in self.request.GET:
             return None
         return generic.ListView.get_paginate_by(self, queryset)
 
@@ -641,7 +641,7 @@ class UserListView(generic.ListView):
         return super(UserListView, self).dispatch(request, *args, **kwargs)
 
     def get_paginate_by(self, queryset):
-        if 'all' in self.request.REQUEST:
+        if 'all' in self.request.GET:
             return None
         return generic.ListView.get_paginate_by(self, queryset)
 
@@ -850,7 +850,7 @@ class MenuListView(generic.ListView):
         return super(MenuListView, self).dispatch(request, *args, **kwargs)
 
     def get_paginate_by(self, queryset):
-        if 'all' in self.request.REQUEST:
+        if 'all' in self.request.GET:
             return None
         return generic.ListView.get_paginate_by(self, queryset)
 
@@ -1386,7 +1386,7 @@ class GroupListView(generic.ListView):
         return super(GroupListView, self).dispatch(request, *args, **kwargs)
 
     def get_paginate_by(self, queryset):
-        if 'all' in self.request.REQUEST:
+        if 'all' in self.request.GET:
             return None
         return generic.ListView.get_paginate_by(self, queryset)
 
@@ -1637,7 +1637,7 @@ class PermissionListView(generic.ListView):
         return super(PermissionListView, self).dispatch(request, *args, **kwargs)
 
     def get_paginate_by(self, queryset):
-        if 'all' in self.request.REQUEST:
+        if 'all' in self.request.GET:
             return None
         return generic.ListView.get_paginate_by(self, queryset)
 

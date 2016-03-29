@@ -1,5 +1,5 @@
 # _*_ coding: utf-8 _*_
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
 # views
 from .views import HeadquarListView, HeadquarUpdateView, HeadquarCreateView, \
@@ -12,8 +12,7 @@ from .views import SolutionListView, SolutionCreateView,\
     SolutionUpdateView, SolutionDeleteView, SolutionUpdateActiveView
 
 # public
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^headquar/update_association/(?P<pk>.*)/$',
         HeadquarAssociationUpdateView.as_view(), name='headquar-update_association'),
     url(r'^headquar/state/(?P<state>[\w\d\-]+)/(?P<pk>.*)/$',
@@ -55,4 +54,4 @@ urlpatterns = patterns(
     url(r'^solution/index/$',
         SolutionListView.as_view(), name='solution-list'),
 
-)
+]

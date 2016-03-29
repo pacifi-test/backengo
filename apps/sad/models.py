@@ -13,21 +13,20 @@ from django.db.models import signals
 from unicodedata import normalize
 from django.core.exceptions import ValidationError
 from django.core.exceptions import NON_FIELD_ERRORS
-
+import datetime
 # models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser# managers
+from .managers import UserManager
 from apps.params.models import Person
 from django.contrib.auth.models import Group, Permission
 from apps.space.models import Solution, Association, Enterprise, Headquar
 
-# managers
-from .managers import UserManager
+
 
 # others
 
 
 # TODO Is done por ahora
-
 
 
 ON = 'ON'
@@ -134,6 +133,7 @@ class User(AbstractUser):
 
 
 def user_pre_save(sender, instance, raw, **kwargs):
+    instance.last_login = datetime.datetime.now()
     if instance.person:
         instance.first_name = instance.person.first_name
         instance.last_name = instance.person.last_name
@@ -146,7 +146,6 @@ def user_post_save(sender, instance, created, raw, **kwargs):
 
 signals.pre_save.connect(user_pre_save, sender=User)
 #signals.post_save.connect(user_post_save, sender=User)
-
 
 
 class UserStatus(models.Model):
@@ -269,14 +268,11 @@ class Module(models.Model):
             raise ValidationError({
                 'name':
                 (_(u'%(model_name)s with this %(field_label)s already exists.') % {
-                'model_name': '%s "%s"' % (capfirst(_('Module')) + '', dict(MODULE_CHOICES).get(self.module)),
-                'field_label': capfirst(_('name')),
+                    'model_name': '%s "%s"' % (capfirst(_('Module')) + '', dict(MODULE_CHOICES).get(self.module)),
+                    'field_label': capfirst(_('name')),
                 }, ),
             })
         super(Module, self).validate_unique(exclude=exclude)
-
-
-
 
 
 class Menu(models.Model):
@@ -289,7 +285,7 @@ class Menu(models.Model):
         _('Module'), max_length=50, choices=MODULE_CHOICES, default=BACKEND)
     title = models.CharField(capfirst(_('title')), max_length=50)
     url = models.CharField(max_length=150, default='#')
-    pos = models.IntegerField(_('Position'), max_length=50, default=1)
+    pos = models.IntegerField(_('Position'), default=1)
     icon = models.CharField(
         _('Icon'), max_length=50, null=True, blank=True, default='')
     is_active = models.BooleanField(capfirst(_('active')), default=True)
@@ -426,10 +422,6 @@ class Backup(models.Model):
 
     def __str__(self):
         return self.file_name
-
-
-
-
 
 
 ''' 

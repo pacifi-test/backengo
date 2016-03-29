@@ -280,7 +280,7 @@ class HeadquarListView(generic.ListView):
         return super(HeadquarListView, self).dispatch(request, *args, **kwargs)
 
     def get_paginate_by(self, queryset):
-        if 'all' in self.request.REQUEST:
+        if 'all' in self.request.GET:
             return None
         return generic.ListView.get_paginate_by(self, queryset)
 
@@ -491,7 +491,7 @@ class EnterpriseListView(generic.ListView):
         return super(EnterpriseListView, self).dispatch(request, *args, **kwargs)
 
     def get_paginate_by(self, queryset):
-        if 'all' in self.request.REQUEST:
+        if 'all' in self.request.GET:
             return None
         return generic.ListView.get_paginate_by(self, queryset)
 
@@ -828,7 +828,7 @@ class SolutionListView(generic.ListView):
         return super(SolutionListView, self).dispatch(request, *args, **kwargs)
 
     def get_paginate_by(self, queryset):
-        if 'all' in self.request.REQUEST:
+        if 'all' in self.request.GET:
             return None
         return generic.ListView.get_paginate_by(self, queryset)
 

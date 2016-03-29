@@ -9,7 +9,7 @@ Descripcion: Genera el pie de paginación
 
 from django import template
 from django.utils.html import escapejs, format_html
-from django.contrib.admin.views.main import (ALL_VAR, EMPTY_CHANGELIST_VALUE,
+from django.contrib.admin.views.main import (ALL_VAR, 
                                              ORDER_VAR, PAGE_VAR, SEARCH_VAR)
 from django.utils.safestring import mark_safe
 
@@ -26,7 +26,7 @@ def paginator_number(page_obj, i, f, q, o):
     # i=i+1
     #print '%s\n' % i
     if i == DOT:
-        return '<li class="dot"><a>...</a></li>'
+        return mark_safe('<li class="dot"><a>...</a></li>')
     elif i == page_obj.number:
         return format_html('<li class="active"><a href="#">{0}<span class="sr-only">(current)</span></a></li> ', i)
     else:

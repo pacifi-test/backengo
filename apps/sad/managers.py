@@ -11,6 +11,7 @@ from django.db import models
 #from django.db.models.query import QuerySet
 from django.db.models import Q
 from django.conf import settings
+from django.contrib.auth.models import UserManager
 
 
 class UserQuerySet(models.query.QuerySet):
@@ -33,7 +34,7 @@ class UserQuerySet(models.query.QuerySet):
 # http://agiliq.com/books/djangodesignpatterns/models.html
 
 
-class UserManager(models.Manager):
+class UserManager(UserManager):  # models.Manager
 
     """ """
 

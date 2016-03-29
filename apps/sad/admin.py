@@ -19,13 +19,13 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 
 CHOICES = ((ON, 'Blue'),
-          (OFF, 'Green'),
+           (OFF, 'Green'),
            )
 
 
 class MyUserCreationForm(UserCreationForm):
 
-    class Meta:
+    class Meta(UserCreationForm.Meta):
         model = User  # get_user_model()
 
 
@@ -35,7 +35,7 @@ class MyUserChangeForm(UserChangeForm):
         widget=forms.Textarea)
     # is_staff = forms.ChoiceField(widget=forms.RadioSelect, choices=CHOICES)
 
-    class Meta:
+    class Meta(UserChangeForm.Meta):
         model = User  # get_user_model()
 
 

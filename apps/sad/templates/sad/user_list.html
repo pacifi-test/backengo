@@ -67,7 +67,7 @@ $(function() {
                 </td>
                 <td><span class="label label-{{ d.is_superuser|yesno:'primary,info' }}">{{ d.is_superuser|yesno:'SUPERUSER,user' }}</span></td>
                 <td><span class="label label-{{ d.is_superuser|yesno:'primary,info' }}">{{ d.username }}</span></td>
-                <td>{{ d.person.first_name  }}</td>
+                <td>{{ d.person.first_name  }} </td>
                 <td>{{ d.person.last_name   }} </td>
                 <td>{{ d.person.get_identity_type_display }}{{ d.person.identity_num|add:'' }}</td>
                  <td>{{ d.email }}</td>

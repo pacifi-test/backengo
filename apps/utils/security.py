@@ -25,7 +25,7 @@ from django.db.models import Q
 from django.http import HttpResponse
 from django.db import models
 from django.utils.encoding import force_text
-from django.contrib.admin.util import NestedObjects, get_deleted_objects
+from django.contrib.admin.utils import NestedObjects, get_deleted_objects
 from django.db import transaction, DEFAULT_DB_ALIAS, router
 from django.utils.text import capfirst, get_text_list
 from django.core.exceptions import ValidationError

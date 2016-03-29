@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, url, include
+from django.conf.urls import url, include
 from django.views.generic import TemplateView
 
 from .views import LoginView, LogOutView, SignUpView, index, load_access, \
@@ -6,13 +6,11 @@ from .views import LoginView, LogOutView, SignUpView, index, load_access, \
 from django.contrib.auth import views as auth_views
 
 
-accounts_patterns = patterns(
-    '',
-    url(r'^$', index, name='index'),
-)
+accounts_patterns = [
+    url(r'^', index, name='index'),
+]
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     # Examples:
     # url(r'^$', 'plateo.views.home', name='home'),
     url(r'^load_access/(?P<headquar_id>.*)/(?P<module_id>.*)/$',
@@ -27,7 +25,7 @@ urlpatterns = patterns(
 
     url(r'^logout/$', LogOutView.as_view(), name='logout'),
 
-    url(r'^register/$', SignUpView.as_view(), name='register'),
+    url(r'^register/', SignUpView.as_view(), name='register'),
 
     url(r'^password_reset/$',
         auth_views.password_reset, name='password_reset'),
@@ -49,4 +47,4 @@ urlpatterns = patterns(
         name='password_change_done'),
 
 
-)
+]

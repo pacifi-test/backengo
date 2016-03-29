@@ -1,12 +1,11 @@
 # Backend Manager for Django
 
-Módulo Backend para aplicaciones web SaaS seguras escritas en Django 1.7 y con la elegancia de Bootstrap 3.
+Módulo Backend para aplicaciones web SaaS seguras escritas (update) en Django 1.9.4 y con la elegancia de Bootstrap 3.
 
 Por medio de este Backend podrás gestionar las diferentes partes del sistema: usuarios, perfiles, recursos, permisos, módulos, planes SaaS, menús, asociaciones, empresas, sedes, logs, seguridad, internacionalización y mucho más!.
 
 Ahora, cuando inicias un proyecto comenzarás directamente a atender(implementar) los requisitos de tu nuevo sistema, ya que Backengo se encargó de todo el trabajo inicial repetitivo de todo proyecto de software así como de los componentes o librerías que necesitas antes de comenzar a desarrollar una aplicación web moderna y segura.
 
-Este Backend es el entregable más importante de todo UN MARCO DE TRABAJO para desarrollar app WEB MODERNAS Y SEGURAS denominado "ScrumSAD".
 
 
 ![desktop](https://github.com/submitconsulting/backengo/blob/master/media/test_images/img1.png)
@@ -28,89 +27,54 @@ Password: `12345`
 
 ## How to Get Started
 
-1 Install python 2.7.x, for win check Path
-
->C:\Python27\Scripts;C:\Python27;
+1 Install python 3.5.1, for win
 
 2 clone this repo or download .zip file
+    D:\>md pydev
+    D:\pydev>git clone https://github.com/submitconsulting/backengo.git
 
 3 install all the necessary packages (best done inside of a virtual environment)
 
-    $pip install -r requirements.txt
+    D:\pydev>cd backengo
+    D:\pydev\backengo>virtualenv ve_backengo
+    D:\pydev\backengo>ve_backengo\Scripts\activate
 
-  para instalar pip revise [Guía del desarrollador][manual]
+    (ve_backengo) D:\pydev\backengo>pip install -r requirements.txt
+
+    (ve_backengo) D:\pydev\backengo>manage.py runserver
+
+    para instalar pip revise [Guía del desarrollador][manual]
 
 4 run the app
 
-    $python manage.py runserver
+    (ve_backengo) D:\pydev\backengo>manage.py runserver
+    ó
+    (ve_backengo) D:\pydev\backengo>python manage.py runserver
 
-
-## How to Get Started Professionally
-
-### virtualenv install
-
-    D:\>pip install virtualenv
-
-### create app structure (optional)
-
-    D:\>md dev\apps\backengo-root
-    D:\>cd dev\apps\backengo-root
-    D:\dev\apps\backengo-root>
-
+5. Estructura de carpeta
 ```
 D:\>
-└── dev
-    └── apps
-        └── backengo-root
+└── pydev
+    └── backengo
+        └── backengo
+        └── ve_backengo
 
 ```
 
-### virtualenv installing
-
-    D:\dev\apps>pip install virtualenv
-
-#### creating virtualenv
-
-    D:\dev\apps\backengo-root>virtualenv veb
-    New python executable in veb\Scripts\python.exe
-    Installing setuptools, pip...done.
-
-### activating virtualenv
-
-    D:\dev\apps\backengo-root>veb\Scripts\activate
-    (veb) D:\dev\apps\backengo-root>
-
-### installing requirements
-
-    (veb) D:\dev\apps\backengo-root>cd backengo
-    (veb) D:\dev\apps\backengo-root\backengo>pip install -r requirements.txt
-
-### runing
-    
-    (veb) D:\dev\apps\backengo-root\backengo>python manage.py runserver
-
-### Final structure (optional)
-
+ó
 
 ```
-D:\dev\apps
-└── backengo-root
+D:
+└── pydev
     ├── backengo
-    │   └── manage.py
-    └── veb
+    │   └── backengo
+    │   └── manage.py
+    └── ve_backengo
         └── Scripts 
             └── activate.bat   
 ```
- backengo, es la carpeta descompriminda descargada de github como backengo-master
-
 
 ## Dev commands:
-  
-    
-
-    D:\>
-    dev\apps\backengo-root\veb\Scripts\activate
-    cd dev\apps\backengo-root\backengo
 
     (veb) D:\dev\apps\backengo-root\backengo>python -m django-admin makemessages -l es_PE 
 
@@ -149,8 +113,11 @@ exec
 
  
 And run the following command:
+    $ manage.py loaddata ini_data
 
-    $python manage.py loaddata ini_data
+    ó
+
+    $ manage.py loaddata fixtures\ini_data.json
 
 
 3rd-Party Apps/Libraries/Plugins
@@ -174,6 +141,6 @@ See https://github.com/submitconsulting/backengo/contributors
 ## Important
 
 * Todas las vistas están basadas en clases (class-based views)
-* `django_migrations` es nuevo en django 1.7.x 
+* `django_migrations` es nuevo desde django 1.7.x 
 
 

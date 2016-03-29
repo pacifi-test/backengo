@@ -281,8 +281,8 @@ class LoginView(generic.FormView):
     def dispatch(self, request, *args, **kwargs):
 
         if self.request.user.is_authenticated() and self.request.user.is_active:
-            if self.request.REQUEST.get('next'):
-                self.success_url = self.request.REQUEST.get('next')
+            if self.request.GET.get('next'):
+                self.success_url = self.request.GET.get('next')
             else:
                 self.success_url = '/accounts/'
                 try:  # intentar cargar la última session
@@ -315,8 +315,8 @@ class LoginView(generic.FormView):
             login(self.request, user)
             messages.success(self.request, _('Welcome,') + ' ' + username)
 
-            if self.request.REQUEST.get('next'):
-                self.success_url = self.request.REQUEST.get('next')
+            if self.request.GET.get('next'):
+                self.success_url = self.request.GET.get('next')
             else:
                 self.success_url = '/accounts/'
                 try:  # intentar cargar la última session

@@ -1,7 +1,6 @@
 [{
 	"fields": {
 		"model": "logentry",
-		"name": "log entry",
 		"app_label": "admin"
 	},
 	"model": "contenttypes.contenttype",
@@ -9,7 +8,6 @@
 }, {
 	"fields": {
 		"model": "permission",
-		"name": "permission",
 		"app_label": "auth"
 	},
 	"model": "contenttypes.contenttype",
@@ -17,7 +15,6 @@
 }, {
 	"fields": {
 		"model": "group",
-		"name": "group",
 		"app_label": "auth"
 	},
 	"model": "contenttypes.contenttype",
@@ -25,7 +22,6 @@
 }, {
 	"fields": {
 		"model": "contenttype",
-		"name": "content type",
 		"app_label": "contenttypes"
 	},
 	"model": "contenttypes.contenttype",
@@ -33,7 +29,6 @@
 }, {
 	"fields": {
 		"model": "session",
-		"name": "session",
 		"app_label": "sessions"
 	},
 	"model": "contenttypes.contenttype",
@@ -41,7 +36,6 @@
 }, {
 	"fields": {
 		"model": "site",
-		"name": "site",
 		"app_label": "sites"
 	},
 	"model": "contenttypes.contenttype",
@@ -49,7 +43,6 @@
 }, {
 	"fields": {
 		"model": "migrationhistory",
-		"name": "migration history",
 		"app_label": "south"
 	},
 	"model": "contenttypes.contenttype",
@@ -57,7 +50,6 @@
 }, {
 	"fields": {
 		"model": "user",
-		"name": "user",
 		"app_label": "sad"
 	},
 	"model": "contenttypes.contenttype",
@@ -65,7 +57,6 @@
 }, {
 	"fields": {
 		"model": "person",
-		"name": "person",
 		"app_label": "params"
 	},
 	"model": "contenttypes.contenttype",
@@ -73,7 +64,6 @@
 }, {
 	"fields": {
 		"model": "solution",
-		"name": "solution",
 		"app_label": "space"
 	},
 	"model": "contenttypes.contenttype",
@@ -81,7 +71,6 @@
 }, {
 	"fields": {
 		"model": "association",
-		"name": "association",
 		"app_label": "space"
 	},
 	"model": "contenttypes.contenttype",
@@ -89,7 +78,6 @@
 }, {
 	"fields": {
 		"model": "enterprise",
-		"name": "enterprise",
 		"app_label": "space"
 	},
 	"model": "contenttypes.contenttype",
@@ -97,7 +85,6 @@
 }, {
 	"fields": {
 		"model": "headquar",
-		"name": "headquar",
 		"app_label": "space"
 	},
 	"model": "contenttypes.contenttype",
@@ -105,7 +92,6 @@
 }, {
 	"fields": {
 		"model": "access",
-		"name": "access",
 		"app_label": "sad"
 	},
 	"model": "contenttypes.contenttype",
@@ -113,7 +99,6 @@
 }, {
 	"fields": {
 		"model": "module",
-		"name": "module",
 		"app_label": "sad"
 	},
 	"model": "contenttypes.contenttype",
@@ -121,7 +106,6 @@
 }, {
 	"fields": {
 		"model": "menu",
-		"name": "menu",
 		"app_label": "sad"
 	},
 	"model": "contenttypes.contenttype",
@@ -129,7 +113,6 @@
 }, {
 	"fields": {
 		"model": "userenterprise",
-		"name": "user enterprise",
 		"app_label": "sad"
 	},
 	"model": "contenttypes.contenttype",
@@ -137,7 +120,6 @@
 }, {
 	"fields": {
 		"model": "userheadquar",
-		"name": "user headquar",
 		"app_label": "sad"
 	},
 	"model": "contenttypes.contenttype",
@@ -145,7 +127,6 @@
 }, {
 	"fields": {
 		"model": "userassociation",
-		"name": "user association",
 		"app_label": "sad"
 	},
 	"model": "contenttypes.contenttype",
@@ -153,7 +134,6 @@
 }, {
 	"fields": {
 		"model": "ticket",
-		"name": "ticket",
 		"app_label": "sad"
 	},
 	"model": "contenttypes.contenttype",
@@ -161,7 +141,6 @@
 }, {
 	"fields": {
 		"model": "backup",
-		"name": "backup",
 		"app_label": "sad"
 	},
 	"model": "contenttypes.contenttype",
@@ -169,7 +148,6 @@
 }, {
 	"fields": {
 		"model": "flatpage",
-		"name": "flat page",
 		"app_label": "flatpages"
 	},
 	"model": "contenttypes.contenttype",
@@ -177,7 +155,6 @@
 }, {
 	"fields": {
 		"model": "permission",
-		"name": "permission",
 		"app_label": "sad"
 	},
 	"model": "contenttypes.contenttype",
@@ -185,7 +162,6 @@
 }, {
 	"fields": {
 		"model": "grouppermissions",
-		"name": "grouppermissions",
 		"app_label": "sad"
 	},
 	"model": "contenttypes.contenttype",
@@ -193,7 +169,6 @@
 }, {
 	"fields": {
 		"model": "modulesolutions",
-		"name": "modulesolutions",
 		"app_label": "sad"
 	},
 	"model": "contenttypes.contenttype",
@@ -201,7 +176,6 @@
 }, {
 	"fields": {
 		"model": "group",
-		"name": "group",
 		"app_label": "sad"
 	},
 	"model": "contenttypes.contenttype",
@@ -209,7 +183,6 @@
 }, {
 	"fields": {
 		"model": "dashboard",
-		"name": "dashboard",
 		"app_label": "mod_backend"
 	},
 	"model": "contenttypes.contenttype",
@@ -217,7 +190,6 @@
 }, {
 	"fields": {
 		"model": "profile",
-		"name": "profile",
 		"app_label": "accounts"
 	},
 	"model": "contenttypes.contenttype",
@@ -225,7 +197,6 @@
 }, {
 	"fields": {
 		"model": "audit",
-		"name": "audit",
 		"app_label": "sad"
 	},
 	"model": "contenttypes.contenttype",
@@ -233,7 +204,6 @@
 }, {
 	"fields": {
 		"model": "log",
-		"name": "log",
 		"app_label": "sad"
 	},
 	"model": "contenttypes.contenttype",
@@ -241,7 +211,6 @@
 }, {
 	"fields": {
 		"model": "maintenance",
-		"name": "maintenance",
 		"app_label": "sad"
 	},
 	"model": "contenttypes.contenttype",
@@ -249,7 +218,6 @@
 }, {
 	"fields": {
 		"model": "system",
-		"name": "system",
 		"app_label": "sad"
 	},
 	"model": "contenttypes.contenttype",
@@ -257,7 +225,6 @@
 }, {
 	"fields": {
 		"model": "mymodel",
-		"name": "mymodel",
 		"app_label": "params"
 	},
 	"model": "contenttypes.contenttype",
@@ -265,7 +232,6 @@
 }, {
 	"fields": {
 		"model": "tempc",
-		"name": "tempc",
 		"app_label": "tempapp"
 	},
 	"model": "contenttypes.contenttype",

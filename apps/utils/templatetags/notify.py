@@ -10,6 +10,7 @@ por el sistema
 from django import template
 #from apps.utils.messages import Message
 from django.contrib import messages
+from django.utils.safestring import mark_safe
 
 register = template.Library()
 
@@ -24,7 +25,7 @@ def get_notify(request):
     messages.DEBUG: 'debug', # no muestra en pantalla
 
     Setting messages in view::
-        
+
         from django.contrib import messages
 
         messages.debug(request, 'QL statements were executed.') # no muestra
@@ -76,6 +77,6 @@ def get_notify(request):
               u'</script>'
               u'' % (path))
     if request.is_ajax():
-        return '%s%s%s %s' % (a, o, c, script)
+        return mark_safe('%s%s%s %s' % (a, o, c, script))
     else:
-        return '%s%s%s' % (a, o, c)
+        return mark_safe('%s%s%s' % (a, o, c))

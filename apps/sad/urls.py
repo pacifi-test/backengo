@@ -1,5 +1,5 @@
 # _*_ coding: utf-8 _*_
-from django.conf.urls import patterns, url  # , include
+from django.conf.urls import url  # , include
 
 # views
 from .views import UserListView, UserCreateView, UserUpdateView, \
@@ -19,8 +19,7 @@ from .views import PermissionListView, PermissionCreateView, \
     PermissionUpdateView, PermissionDeleteView
 
 # public
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     # user x asullom
      url(r'^user/person_add/(?P<pk>.*)/$',
         UserCreateView.as_view(), name='user-person_add'),
@@ -86,12 +85,11 @@ urlpatterns = patterns(
         PermissionCreateView.as_view(), name='permission-create'),
     url(r'^permission/index/$',
         PermissionListView.as_view(), name='permission-list'),
-    #url(r'^permission/', include(permission_patterns)),
-)
+    # url(r'^permission/', include(permission_patterns)),
+]
 
 
-permission_patterns = patterns(
-    '',
+permission_patterns = [
     url(r'^index/$',
         PermissionListView.as_view(), name='permission-list'),
 
@@ -104,4 +102,4 @@ permission_patterns = patterns(
     url(r'^delete/(?P<pk>.*)/$',
         PermissionDeleteView.as_view(), name='permission-delete'),
 
-)
+]

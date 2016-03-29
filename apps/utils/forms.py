@@ -21,7 +21,7 @@ TEMPLATE_PACK = getattr(settings, 'CRISPY_TEMPLATE_PACK', 'bootstrap')
 
 
 def empty(request, parm, default):
-    return default if not request.REQUEST.get(parm) else request.REQUEST.get(parm)
+    return default if not request.GET.get(parm) else request.GET.get(parm)
 
 
 class BaseButton(object):

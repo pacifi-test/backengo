@@ -16,6 +16,7 @@ from apps.utils.security import UserToken
 from apps.space.models import Enterprise, Headquar
 
 from django.template.defaultfilters import stringfilter
+from django.utils.safestring import mark_safe
 
 from django.contrib import messages
 
@@ -33,11 +34,13 @@ def get_info(request):
     info = "Backend"
     if UserToken.get_headquar_id(request.session):
         try:
-            sede = Headquar.objects.get(id=UserToken.get_headquar_id(request.session))
+            sede = Headquar.objects.get(
+                id=UserToken.get_headquar_id(request.session))
             info = "%s-%s" % (sede.enterprise.name, sede.name)
         except:
-            messages.error(request, ("Sede no se encuentra en la base de datos."))
-        
+            messages.error(
+                request, ("Sede no se encuentra en la base de datos."))
+
     return info
 
 
@@ -79,5 +82,5 @@ def view_menu(request):
             {% view_menu request %}
 
     """
-    
-    return Menus.view(request)
+
+    return mark_safe(Menus.view(request))
